@@ -1,0 +1,40 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:salesman) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_salesman), new_admin_salesman_url, class: "btn-success", icon: 'add', id: 'admin_new_salesman_link' %>
+<% end %>
+<%= paginate @salesmans, theme: 'twitter-bootstrap-3' %>
+<% if @salesmans.present? %>
+  <table class="table" id="listing_salesmans" data-hook>
+    <thead>
+      <tr data-hook="admin_salesmans_index_headers">
+        <th>Name</th>
+        <th>Google Client Id</th>
+        <th>Google Client Secret</th>
+        <th>Google Calander Id</th>
+        <th data-hook="admin_salesmans_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @salesmans.each do |salesman|%>
+        <tr id="<%= spree_dom_id salesman %>" data-hook="admin_salesmans_index_rows">
+          <td class='user_email'><%= salesman.name %></td>
+          <td class='user_email'><%= salesman.google_client_id %></td>
+          <td class='user_email'><%= salesman.google_client_secret %></td>
+          <td class='user_email'><%= salesman.google_calander_id %></td>
+          <td  class="actions actions-2 text-right">
+            <%= link_to '<span class="icon icon-edit"></span>'.html_safe, edit_admin_salesman_path(salesman.id), class: "btn btn-sm btn-primary" %>
+            <%= link_to '<span class="icon icon-delete"></span>'.html_safe, admin_salesman_path(salesman), method: :delete, data: { confirm: "Are You sure?" }, class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: 'Salesman') %>,
+    <%= link_to Spree.t(:add_one), new_admin_salesman_url %>!
+  </div>
+<% end %>

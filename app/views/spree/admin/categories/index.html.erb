@@ -1,0 +1,33 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:categories) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <%= button_link_to Spree.t(:new_category), new_admin_category_url, class: "btn-success", icon: 'add', id: 'admin_new_category_link' %>
+<% end %>
+<%= paginate @categories, theme: 'twitter-bootstrap-3' %>
+<% if @categories.present? %>
+  <table class="table" id="listing_categories" data-hook>
+    <thead>
+      <tr data-hook="admin_categories_index_headers">
+        <th data-hook="admin_categories_index_header_actions" class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category|%>
+        <tr id="<%= spree_dom_id category %>" data-hook="admin_categories_index_rows">
+          <td class='user_email'><%= category.name %></td>
+          <td  class="actions actions-2 text-right">
+            <%= link_to '<span class="icon icon-edit"></span>'.html_safe, edit_admin_category_path(category.id), class: "btn btn-sm btn-primary" %>
+            <%= link_to '<span class="icon icon-delete"></span>'.html_safe, admin_category_path(category), method: :delete, data: { confirm: "Are You sure?" }, class: "btn btn-sm btn-danger" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div class="alert alert-info no-objects-found">
+    <%= Spree.t(:no_resource_found, resource: 'Categories') %>,
+    <%= link_to Spree.t(:add_one), new_admin_category_url %>!
+  </div>
+<% end %>
