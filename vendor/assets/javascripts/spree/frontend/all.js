@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require accounting.min
 //= require spree/frontend
-
+//= require moment
+//= require bootstrap-datetimepicker.min
 //= require_tree .
 //= require spree/frontend/spree_auth
