@@ -33,7 +33,7 @@
 
   <%= f.label :follow_datetime, Spree.t(:follow_up), class: 'required', title: 'required' %>
   <div class="form-group">
-    <%= f.datetime_field :follow_datetime, :class => 'form-control', :placeholder => Spree.t(:date_time) %>
+    <%= f.datetime_select :follow_datetime, :class => 'form-control', :placeholder => Spree.t(:date_time) %>
   </div>
 
   <hr />

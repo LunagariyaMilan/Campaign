@@ -5,7 +5,7 @@
   <div class="col-lg-6">
     <div class="card mb-3">
         <div class="card-header">
-          <h3 class="card-title mb-0 h6"><%= Spree.t(:new_customer) %></h3>
+          <h3 class="card-title mb-0"><%= Spree.t(:new_customer) %></h3>
         </div>
         <div id="new-customer" class="card-body" data-hook="login">
             <%= form_for resource, :as => :spree_user, :url => spree.registration_path do |f| %>

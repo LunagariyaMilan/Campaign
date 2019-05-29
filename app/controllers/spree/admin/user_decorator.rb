@@ -60,11 +60,19 @@ module Contact
       event = Google::Apis::CalendarV3::Event.new({
         start: Google::Apis::CalendarV3::EventDateTime.new(date_time: "#{user.follow_datetime.to_datetime.rfc3339}"),
         end: Google::Apis::CalendarV3::EventDateTime.new(date_time: "#{user.follow_datetime.to_datetime.rfc3339}"),
-        summary: 'New event!',
+        summary: 'New campaign event!',
         description: "Company Name: Logical Street
                       Contact Name: #{user.name}
                       Phone No: #{user.phone}"
       })
+
+      event.reminders = Google::Apis::CalendarV3::Event::Reminders.new(
+        use_default: false,
+        overrides: [
+          Google::Apis::CalendarV3::EventReminder.new(reminder_method:"email", minutes: 1),
+          Google::Apis::CalendarV3::EventReminder.new(reminder_method:"email", minutes: 30)
+        ]
+      )
   
       service.insert_event(calendar_id, event)
       session[:admin_user_id] = nil
