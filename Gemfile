@@ -66,4 +66,3 @@ gem 'spree_auth_devise', '~> 3.5'
 gem 'spree_gateway', '~> 3.4'
 gem 'createsend'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
-gem "font-awesome-rails"
