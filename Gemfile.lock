@@ -130,8 +130,6 @@ GEM
       activesupport (>= 4.2)
     ffaker (2.11.0)
     ffi (1.11.1)
-    font-awesome-rails (4.7.0.5)
-      railties (>= 3.2, < 6.1)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -199,7 +197,9 @@ GEM
     mime-types (3.2.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.0331)
-    mimemagic (0.3.3)
+    mimemagic (0.3.10)
+      nokogiri (~> 1)
+      rake
     mini_magick (4.8.0)
     mini_mime (1.0.1)
     mini_portile2 (2.4.0)
@@ -213,7 +213,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.3.1)
-    nokogiri (1.10.3)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     os (1.0.1)
@@ -441,7 +441,6 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   createsend
-  font-awesome-rails
   google-api-client
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
