@@ -62,7 +62,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'spree', '~> 3.7'
-gem 'spree_auth_devise', '~> 3.5'
+gem 'spree_auth_devise', '~> 4.0'
 gem 'spree_gateway', '~> 3.4'
 gem 'createsend'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
